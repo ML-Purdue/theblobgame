@@ -31,7 +31,9 @@ export default {
     };
   },
   mounted() {
-    this.socket = io("localhost:8000");
+    const server = prompt("server ip");
+    console.log(server);
+    this.socket = io(server);
     this.socket.on("state", this.state_update);
 
     this.playfield = SVG("playfield");

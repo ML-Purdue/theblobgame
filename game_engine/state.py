@@ -10,6 +10,7 @@ from .config import (
     BIT_SPAWN_PROB,
     PLAYER_BLOB_INITIAL_RADIUS,
     FOOD_BLOB_INITIAL_RADIUS,
+    MAX_BLOB_COUNT,
 )
 from .player import Player
 
@@ -154,7 +155,7 @@ class GameState:
                     self.add_blob(new_blob)
 
     def _spawn_bits(self):
-        if random.random() < BIT_SPAWN_PROB:
+        if (random.random() < BIT_SPAWN_PROB) and (len(self.blobs) < MAX_BLOB_COUNT):
             self.place_new_blob(self.computer_player, radius=FOOD_BLOB_INITIAL_RADIUS)
 
     def _collision_check(self):

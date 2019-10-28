@@ -31,7 +31,7 @@ async def error_handler(data):
 
 
 async def start(sio):
-    await sio.connect("http://localhost:8000")
+    await sio.connect("http://142.93.112.226:4001")
     await sio.emit("register", {"name": "elnardu" + str(random.randint(1, 100))})
     await sio.wait()
 
